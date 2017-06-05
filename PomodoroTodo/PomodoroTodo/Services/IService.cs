@@ -11,13 +11,13 @@ namespace PomodoroTodo.Services
     {
         Task Initialize();
 
-        Task<IEnumerable<ToDoItem>> GetToDos();
+        Task<IEnumerable<TodoItem>> GetToDos();
 
-        Task<ToDoItem> AddToDo(string text, bool complete);
+        Task<TodoItem> AddToDo(string text, bool complete);
 
-        Task<ToDoItem> UpdateItem(ToDoItem item);
+        Task<TodoItem> UpdateItem(TodoItem item);
 
-        Task<bool> DeleteItem(ToDoItem item);
+        Task<bool> DeleteItem(TodoItem item);
 
         Task SyncToDos();
     }

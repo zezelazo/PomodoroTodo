@@ -16,7 +16,7 @@ namespace PomodoroTodo
       InitializeComponent();
 
       
-        ServiceLocator.Instance.Add<IService, MockService>();
+        ServiceLocator.Instance.Add<IService, AzureService>();
       
       MainPage = new NavigationPage(new Pages.ToDosPage())
       {

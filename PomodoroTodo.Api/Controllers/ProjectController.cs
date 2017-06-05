@@ -7,39 +7,38 @@ using Microsoft.Azure.Mobile.Server;
 using PomodoroTodo.Api.DataObjects;
 using PomodoroTodo.Api.Models;
 
-namespace PomodoroTodo.Api.Controllers
-{
-  public class TodoItemController : TableController<TodoItem>
+namespace PomodoroTodo.Api.Controllers {
+  public class ProjectController : TableController<Project>
   {
     protected override void Initialize(HttpControllerContext controllerContext)
     {
       base.Initialize(controllerContext);
       MobileServiceContext context = new MobileServiceContext();
-      DomainManager = new EntityDomainManager<TodoItem>(context, Request);
+      DomainManager = new EntityDomainManager<Project>(context, Request);
     }
 
-    public IQueryable<TodoItem> GetAllTodoItems()
+    public IQueryable<Project> GetAllProjects()
     {
       return Query();
-    }                                                     
+    }
 
-    public SingleResult<TodoItem> GetTodoItem(string id)
+    public SingleResult<Project> GetProject(string id)
     {
       return Lookup(id);
     }
 
-    public Task<TodoItem> PatchTodoItem(string id, Delta<TodoItem> patch)
+    public Task<Project> PatchProject(string id, Delta<Project> patch)
     {
       return UpdateAsync(id, patch);
     }
 
-    public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
+    public async Task<IHttpActionResult> PostProject(Project item)
     {
-      TodoItem current = await InsertAsync(item);
+      Project current = await InsertAsync(item);
       return CreatedAtRoute("Tables", new { id = current.Id }, current);
     }
 
-    public Task DeleteTodoItem(string id)
+    public Task DeleteProject(string id)
     {
       return DeleteAsync(id);
     }

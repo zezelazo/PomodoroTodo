@@ -22,8 +22,8 @@ namespace PomodoroTodo.ViewModels
             Refresh();
         }
 
-        ObservableCollection<ToDoItem> toDoItems = new ObservableCollection<ToDoItem>();
-        public ObservableCollection<ToDoItem> ToDoItems {
+        ObservableCollection<TodoItem> toDoItems = new ObservableCollection<TodoItem>();
+        public ObservableCollection<TodoItem> ToDoItems {
             get { return toDoItems; }
             set {
                 toDoItems = value;
@@ -31,9 +31,9 @@ namespace PomodoroTodo.ViewModels
             }
         }
 
-        ToDoItem selectedToDoItem;
+        TodoItem selectedToDoItem;
 
-        public ToDoItem SelectedToDoItem {
+        public TodoItem SelectedToDoItem {
             get { return selectedToDoItem; }
             set {
                 selectedToDoItem = value;

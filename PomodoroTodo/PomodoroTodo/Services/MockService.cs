@@ -9,7 +9,7 @@ namespace PomodoroTodo.Services
 {
     public class MockService : IService
     {
-        List<ToDoItem> items { get; set; } = new List<ToDoItem>();
+        List<TodoItem> items { get; set; } = new List<TodoItem>();
 
         public MockService()
         {
@@ -17,9 +17,9 @@ namespace PomodoroTodo.Services
                 items = ToDos();
         }
 
-        public Task<ToDoItem> AddToDo(string text, bool complete)
+        public Task<TodoItem> AddToDo(string text, bool complete)
         {
-            var item = new ToDoItem
+            var item = new TodoItem
                        {
                            Text = text,
                            Complete = complete
@@ -29,7 +29,7 @@ namespace PomodoroTodo.Services
             return Task.FromResult(item);
         }
 
-        public Task<ToDoItem> UpdateItem(ToDoItem item)
+        public Task<TodoItem> UpdateItem(TodoItem item)
         {
             var todo = items.FirstOrDefault(x => x.Id == item.Id);
             items.Remove(todo);
@@ -37,15 +37,15 @@ namespace PomodoroTodo.Services
             return Task.FromResult(item);
         }
 
-        public Task<bool> DeleteItem(ToDoItem item)
+        public Task<bool> DeleteItem(TodoItem item)
         {
             items.Remove(item);
             return Task.FromResult(true);
         }
 
-        public Task<IEnumerable<ToDoItem>> GetToDos()
+        public Task<IEnumerable<TodoItem>> GetToDos()
         {
-            IEnumerable<ToDoItem> todos = items.AsEnumerable();
+            IEnumerable<TodoItem> todos = items.AsEnumerable();
             return Task.FromResult(todos);
         }
 
@@ -59,25 +59,25 @@ namespace PomodoroTodo.Services
             return null;
         }
 
-        List<ToDoItem> ToDos()
+        List<TodoItem> ToDos()
         {
-            var items = new List<ToDoItem>();
+            var items = new List<TodoItem>();
 
-            var todo1 = new ToDoItem
+            var todo1 = new TodoItem
                         {
                             Text = "Llamar a lan - KM lan pass",
                             Complete = false
                         };
             items.Add(todo1);
 
-            var todo2 = new ToDoItem
+            var todo2 = new TodoItem
                         {
                             Text = "Traducir prensetacion",
                             Complete = true
                         };
             items.Add(todo2);
 
-            var todo3 = new ToDoItem
+            var todo3 = new TodoItem
                         {
                             Text = "Definir caracteristicas del MVP de PomodoroTodo" ,
                             Complete = false
@@ -85,7 +85,7 @@ namespace PomodoroTodo.Services
             items.Add(todo3);
 
 
-            var todo4 = new ToDoItem
+            var todo4 = new TodoItem
                         {
                             Text = "Revisar estado de el pedido del Wacom Spark",
                             Complete = false

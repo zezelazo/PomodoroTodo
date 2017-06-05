@@ -14,7 +14,9 @@ namespace PomodoroTodo.Services
     public class AzureService : IService
     {
         public MobileServiceClient MobileService { get; set; }
-        IMobileServiceSyncTable<ToDoItem> todoTable;
+
+
+        IMobileServiceSyncTable<TodoItem> todoTable;
 
         bool isInitialized;
         public async Task Initialize()
@@ -34,13 +36,13 @@ namespace PomodoroTodo.Services
 
             //TODO 2: Create our database store & define a table.
             var store = new MobileServiceSQLiteStore("todo.db");
-            store.DefineTable<ToDoItem>();
+            store.DefineTable<TodoItem>();
 
             //MobileServiceSyncHandler - Handles table operation errors and push completion results.
             await MobileService.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
 
             //Get our sync table that will call out to azure
-            todoTable = MobileService.GetSyncTable<ToDoItem>();
+            todoTable = MobileService.GetSyncTable<TodoItem>();
 
             isInitialized = true;
         }
@@ -64,18 +66,18 @@ namespace PomodoroTodo.Services
             }
         }
 
-        public async Task<IEnumerable<ToDoItem>> GetToDos()
+        public async Task<IEnumerable<TodoItem>> GetToDos()
         {
             await Initialize();
             await SyncToDos();
             return await todoTable.ToEnumerableAsync();
         }
 
-        public async Task<ToDoItem> AddToDo(string text, bool complete)
+        public async Task<TodoItem> AddToDo(string text, bool complete)
         {
             await Initialize();
-            var item = new ToDoItem
-                       {
+            var item = new TodoItem
+            {
                            Text = text,
                            Complete = complete
                        };
@@ -87,7 +89,7 @@ namespace PomodoroTodo.Services
             return item;
         }
 
-        public async Task<ToDoItem> UpdateItem(ToDoItem item)
+        public async Task<TodoItem> UpdateItem(TodoItem item)
         {
             await Initialize();
 
@@ -99,7 +101,7 @@ namespace PomodoroTodo.Services
             return item;
         }
 
-        public async Task<bool> DeleteItem(ToDoItem item)
+        public async Task<bool> DeleteItem(TodoItem item)
         {
             await Initialize();
             try

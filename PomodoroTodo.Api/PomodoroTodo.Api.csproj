@@ -160,9 +160,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Startup.MobileApp.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\PomodoroController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\TodoItemController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DataObjects\Customer.cs" />
+    <Compile Include="DataObjects\ERateType.cs" />
+    <Compile Include="DataObjects\Pomodoro.cs" />
+    <Compile Include="DataObjects\Project.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
+    <Compile Include="DataObjects\User.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

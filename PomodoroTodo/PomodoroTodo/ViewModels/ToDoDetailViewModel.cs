@@ -9,9 +9,9 @@ namespace PomodoroTodo.ViewModels {
   public class ToDoDetailViewModel : ViewModelBase
   {
     IService azureService;
-    ToDoItem item;
+    TodoItem item;
 
-    public ToDoDetailViewModel(ToDoItem item = null)
+    public ToDoDetailViewModel(TodoItem item = null)
     {
       if (item != null)
       {

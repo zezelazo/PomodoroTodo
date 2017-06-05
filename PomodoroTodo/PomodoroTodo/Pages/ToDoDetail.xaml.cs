@@ -12,7 +12,7 @@ namespace PomodoroTodo.Pages
   [XamlCompilation(XamlCompilationOptions.Compile)]
   public partial class ToDoDetail : ContentPage
   {
-    public ToDoDetail(ToDoItem item = null)
+    public ToDoDetail(TodoItem item = null)
     {
       InitializeComponent();
       if (item != null)

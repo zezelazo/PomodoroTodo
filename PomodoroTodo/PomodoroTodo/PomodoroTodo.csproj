@@ -44,7 +44,12 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\ERateType.cs" />
+    <Compile Include="Models\Pomodoro.cs" />
+    <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ToDoItem.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Pages\ToDoDetail.xaml.cs">
       <DependentUpon>ToDoDetail.xaml</DependentUpon>
     </Compile>
@@ -71,10 +76,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Acr.UserDialogs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Acr.UserDialogs.4.3.4\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.dll</HintPath>
+      <HintPath>..\..\packages\Acr.UserDialogs.5.0.0\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.dll</HintPath>
     </Reference>
     <Reference Include="Acr.UserDialogs.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Acr.UserDialogs.4.3.4\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.Interface.dll</HintPath>
+      <HintPath>..\..\packages\Acr.UserDialogs.5.0.0\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.Interface.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Azure.Mobile.Client.3.1.0\lib\portable-win+net45+wp8+wpa81+monotouch+monoandroid\Microsoft.WindowsAzure.Mobile.dll</HintPath>

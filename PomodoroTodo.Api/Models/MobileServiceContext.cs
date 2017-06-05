@@ -15,7 +15,11 @@ namespace PomodoroTodo.Api.Models
     {
     }
 
+    public DbSet<Customer> Customers { get; set; }
+    public DbSet<Pomodoro> Pomodoros { get; set; }
+    public DbSet<Project> Projects { get; set; }
     public DbSet<TodoItem> TodoItems { get; set; }
+    public DbSet<User> User { get; set; }
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
